@@ -14,28 +14,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.keycloak.social.alipay;
 
-package com.limengxiang.keycloak.alipay;
-
-import org.keycloak.broker.oidc.mappers.AbstractJsonUserAttributeMapper;
+import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
+import org.keycloak.models.IdentityProviderModel;
 
 /**
- * User attribute mapper.
- * 
  * @author Petter Lysne (petterlysne at hotmail dot com)
  */
-public class PayPalUserAttributeMapper extends AbstractJsonUserAttributeMapper {
+public class AlipayIdentityProviderConfig extends OAuth2IdentityProviderConfig {
 
-	private static final String[] cp = new String[] { PayPalIdentityProviderFactory.PROVIDER_ID };
+    public AlipayIdentityProviderConfig(IdentityProviderModel model) {
+        super(model);
+    }
 
-	@Override
-	public String[] getCompatibleProviders() {
-		return cp;
-	}
+    public AlipayIdentityProviderConfig() {
+        
+    }
 
-	@Override
-	public String getId() {
-		return "paypal-user-attribute-mapper";
-	}
+    public boolean targetSandbox() {
+        String sandbox = getConfig().get("sandbox");
+        return sandbox == null ? false : Boolean.valueOf(sandbox);
+    }
+
+    public void setSandbox(boolean sandbox) {
+        getConfig().put("sandbox", String.valueOf(sandbox));
+    }
 
 }

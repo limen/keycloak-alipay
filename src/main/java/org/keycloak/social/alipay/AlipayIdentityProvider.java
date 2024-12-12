@@ -15,11 +15,10 @@
  * limitations under the License.
  */
 
-package com.limengxiang.keycloak.alipay;
+package org.keycloak.social.alipay;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.keycloak.broker.oidc.AbstractOAuth2IdentityProvider;
-import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
 import org.keycloak.broker.oidc.mappers.AbstractJsonUserAttributeMapper;
 import org.keycloak.broker.provider.BrokeredIdentityContext;
 import org.keycloak.broker.provider.IdentityBrokerException;
@@ -31,7 +30,7 @@ import org.keycloak.models.KeycloakSession;
 /**
  * @author Petter Lysne (petterlysne at hotmail dot com)
  */
-public class PayPalIdentityProvider extends AbstractOAuth2IdentityProvider<PayPalIdentityProviderConfig> implements SocialIdentityProvider<PayPalIdentityProviderConfig>{
+public class AlipayIdentityProvider extends AbstractOAuth2IdentityProvider<AlipayIdentityProviderConfig> implements SocialIdentityProvider<AlipayIdentityProviderConfig>{
 
   public static final String BASE_URL = "https://api.paypal.com/v1";
   public static final String AUTH_URL = "https://www.paypal.com/signin/authorize";
@@ -39,7 +38,7 @@ public class PayPalIdentityProvider extends AbstractOAuth2IdentityProvider<PayPa
 	public static final String PROFILE_RESOURCE = "/oauth2/token/userinfo?schema=openid";
 	public static final String DEFAULT_SCOPE = "openid profile email";
 
-	public PayPalIdentityProvider(KeycloakSession session, PayPalIdentityProviderConfig config) {
+	public AlipayIdentityProvider(KeycloakSession session, AlipayIdentityProviderConfig config) {
 		super(session, config);
 		config.setAuthorizationUrl(config.targetSandbox() ? "https://www.sandbox.paypal.com/signin/authorize" : AUTH_URL);
 		config.setTokenUrl((config.targetSandbox() ? "https://api.sandbox.paypal.com/v1" : BASE_URL) + TOKEN_RESOURCE);

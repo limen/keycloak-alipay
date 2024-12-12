@@ -14,9 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.limengxiang.keycloak.alipay;
+package org.keycloak.social.alipay;
 
-import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
 import org.keycloak.broker.provider.AbstractIdentityProviderFactory;
 import org.keycloak.models.IdentityProviderModel;
 import org.keycloak.broker.social.SocialIdentityProviderFactory;
@@ -29,23 +28,23 @@ import java.util.List;
 /**
  * @author Petter Lysne
  */
-public class PayPalIdentityProviderFactory extends AbstractIdentityProviderFactory<PayPalIdentityProvider> implements SocialIdentityProviderFactory<PayPalIdentityProvider> {
+public class AlipayIdentityProviderFactory extends AbstractIdentityProviderFactory<AlipayIdentityProvider> implements SocialIdentityProviderFactory<AlipayIdentityProvider> {
 
-    public static final String PROVIDER_ID = "paypal";
+    public static final String PROVIDER_ID = "alipay";
 
     @Override
     public String getName() {
-        return "PayPal";
+        return "Alipay";
     }
 
     @Override
-    public PayPalIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
-        return new PayPalIdentityProvider(session, new PayPalIdentityProviderConfig(model));
+    public AlipayIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
+        return new AlipayIdentityProvider(session, new AlipayIdentityProviderConfig(model));
     }
 
     @Override
-    public PayPalIdentityProviderConfig createConfig() {
-        return new PayPalIdentityProviderConfig();
+    public AlipayIdentityProviderConfig createConfig() {
+        return new AlipayIdentityProviderConfig();
     }
 
     @Override

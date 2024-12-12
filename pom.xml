@@ -4,14 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.limengxiang</groupId>
-    <artifactId>keycloak-alipay</artifactId>
+    <groupId>org.keycloak</groupId>
+    <artifactId>keycloak-services-social-alipay</artifactId>
     <version>1.0.0</version>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.14.2</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-core -->
         <dependency>
